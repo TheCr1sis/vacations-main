@@ -1,0 +1,391 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+header{
+    position: relative;
+    width: 100%;
+    height: 125px;
+    background-color: #219ebc ;
+    overflow: hidden;
+    user-select: none;
+}
+
+header .header-text{
+    display: flex;
+    height: 81px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+
+header .header-text .logo a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight:bold;
+    color: #ffb703;
+    font-size: 22px;
+}
+
+header .header-text .logo img{
+    height: 40px;
+    padding-right: 5px;
+    transform: scaleX(-1);
+}
+
+header .header-text nav ul a{
+    display: inline-flex;
+    position: relative;
+    list-style: none;
+    text-decoration: none;
+    margin: 9px 20px;
+    font-weight:bold;
+    color: #ffb703;
+    font-size: 20px;
+    border-radius: 13px;
+}
+
+header .header-text nav ul a:not(.active)::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0px;
+    height: 3px;
+    background-color: #8ecae6;
+    transition: .35s all ease-in-out;
+}
+
+header .header-text nav ul a:hover::before{
+    width: 100%;
+}
+
+.active::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #8ecae6;
+    transition: .35s all ease-in-out;
+}
+
+header .wave{
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    bottom: 0;
+    left: 0;
+    background-image: url(../images/wave.png);
+    background-size: 500px 40px;
+}
+
+header .wave.wave1{
+    animation: animate 30s linear infinite;
+    z-index: 400;
+    opacity: 1;
+    animation-delay: 5s;
+    bottom: 0;
+}
+
+header .wave.wave2{
+    animation: animate-secondary 15s linear infinite;
+    z-index: 399;
+    opacity: 0.5;
+    animation-delay: 0s;
+    bottom: 2px;
+}
+
+header .wave.wave3{
+    animation: animate 30s linear infinite;
+    z-index: 398;
+    opacity: 0.2;
+    animation-delay: 3s;
+    bottom: 3px;
+}
+
+header .wave.wave4{
+    animation: animate-secondary 5s linear infinite;
+    z-index: 397;
+    opacity: 0.7;
+    animation-delay: 0s;
+    bottom: 4px;
+}
+
+@keyframes animate{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: 500px;
+    }
+}
+
+@keyframes animate-secondary{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: -500px;
+    }
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(white, #6ac6f0);
+}
+
+main .form-box{
+    margin: 70px 0; 
+    padding: 40px;
+    min-height: 500px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+main *{
+    box-sizing: border-box;
+}
+
+main .form-box h1{
+    font-size: 60px;
+    text-align: center;
+    font-weight: 400;
+    color:#023047;
+}
+
+form .input-row{
+    display: flex;
+    margin: 30px 0;
+}
+
+form .input-data{
+    position: relative;
+    outline: none;
+    width: 100%;
+    height: 40px;
+    margin: 20px 10px;
+}
+
+form .freetext{
+    height: 70px;
+}
+
+.input-data input, 
+.freetext textarea{
+    display: block;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+    border-bottom: 3px solid rgba(0,0,0, 0.12);
+}
+
+.freetext textarea{
+    resize: none;
+    padding-top: 10px;
+}
+
+.input-data input:focus ~ label, 
+.freetext textarea:focus ~ label,
+.input-data input:valid ~ label, 
+.freetext textarea:valid ~ label{
+  transform: translateY(-30px);
+  font-size: 14px;
+  color: #219ebc;
+}
+
+.input-data label{
+    position: absolute;
+    pointer-events: none;
+    bottom: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.freetext label{
+    width: 100%;
+    bottom: 40px;
+}
+
+  .input-data .line, .freetext .line{
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+}
+
+.input-data .line:before{
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: 100%;
+    background: #219ebc;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.input-data input:focus ~ .line::before,
+.input-data input:valid ~ .line::before,
+.freetext textarea:focus ~ .line::before,
+.freetext textarea:valid ~ .line::before{
+    transform: scale(1);
+}
+
+.submit-input{
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.submit-input input{
+    width: 40%;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: #023047;
+    color: white;
+    cursor: pointer;
+    transition: .3s all ease-in-out;
+}
+
+.submit-input input:hover{
+    background-color: #219ebc;
+}
+
+form .checkboxes{
+    gap: 10px;
+}
+form .radiobuttons{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+form .slider{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+form .dropfiles{
+    border: 2px dashed rgb(172, 171, 171);
+
+}
+ 
+form .dropfiles input{
+    padding: 20px;
+    width: 100%;
+}
+
+form h3{
+    font-size: 20px;
+    font-weight: 200;
+    text-align: center;
+    margin-top: 15px;
+}
+
+  
+@media (max-width: 700px) {
+    .form-box .text{
+      font-size: 30px;
+    }
+    .form-box form{
+      padding: 10px 0 0 0;
+    }
+    .form-box form .input-row{
+      display: block;
+    }
+    form .input-row .input-data{
+      margin: 35px 0!important;
+    }
+    .submit-btn .input-data{
+      width: 40%!important;
+    }
+    main .form-box{
+        min-height: 600px;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+}
+
+footer{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #023047;
+    padding: 50px 0;
+}
+
+footer .container{
+    max-width: 1170px;
+    margin: auto;
+}
+
+footer .row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+footer .footer-column{
+    width: 30%;
+    padding: 0 10px;
+}
+
+.footer-column h4{
+    font-size: 18px;
+    color: white;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    font-weight: 500;
+    position: relative;
+    user-select: none;
+}
+
+.footer-column h4::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #fb8500;
+    box-sizing: border-box;
+    height: 2px;
+    width: 50px;
+}
+
+.footer-column ul li:not(:last-child)
+{
+    margin-bottom: 12px;
+}
+
+footer .container ul li a{
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+} 
+
+footer .container ul li a:hover{
+   color: white;
+   padding: 0 10px;
+} 
+
+footer .container ul{   
+    list-style: none;
+}
+
+@media (max-width:800px) {
+    footer .footer-column{
+        width: 50%;
+        padding: 10px;
+    }
+}

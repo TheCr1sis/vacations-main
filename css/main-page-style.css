@@ -1,0 +1,264 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+header{
+    position: relative;
+    width: 100%;
+    height: 125px;
+    background-color: #219ebc ;
+    overflow: hidden;
+    user-select: none;
+}
+
+header .header-text{
+    display: flex;
+    height: 81px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+
+header .header-text .logo a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight:bold;
+    color: #ffb703;
+    font-size: 22px;
+}
+
+header .header-text .logo img{
+    height: 40px;
+    padding-right: 5px;
+    transform: scaleX(-1);
+}
+
+header .header-text nav ul a{
+    display: inline-flex;
+    position: relative;
+    list-style: none;
+    text-decoration: none;
+    margin: 9px 20px;
+    font-weight:bold;
+    color: #ffb703;
+    font-size: 20px;
+    border-radius: 13px;
+}
+
+header .header-text nav ul a:not(.active)::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0px;
+    height: 3px;
+    background-color: #8ecae6;
+    transition: .35s all ease-in-out;
+}
+
+header .header-text nav ul a:hover::before{
+    width: 100%;
+}
+
+.active::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #8ecae6;
+    transition: .35s all ease-in-out;
+}
+
+header .wave{
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    bottom: 0;
+    left: 0;
+    background-image: url(../images/wave.png);
+    background-size: 500px 40px;
+}
+
+header .wave.wave1{
+    animation: animate 30s linear infinite;
+    z-index: 400;
+    opacity: 1;
+    animation-delay: 5s;
+    bottom: 0;
+}
+
+header .wave.wave2{
+    animation: animate-secondary 15s linear infinite;
+    z-index: 399;
+    opacity: 0.5;
+    animation-delay: 0s;
+    bottom: 2px;
+}
+
+header .wave.wave3{
+    animation: animate 30s linear infinite;
+    z-index: 398;
+    opacity: 0.2;
+    animation-delay: 3s;
+    bottom: 3px;
+}
+
+header .wave.wave4{
+    animation: animate-secondary 5s linear infinite;
+    z-index: 397;
+    opacity: 0.7;
+    animation-delay: 0s;
+    bottom: 4px;
+}
+
+@keyframes animate{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: 500px;
+    }
+}
+
+@keyframes animate-secondary{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: -500px;
+    }
+}
+
+main{
+    background-color: white;    
+}
+
+.introduction{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.introduction:nth-child(even){
+    background-color: #a6ddf7;
+}
+
+main .introduction .wrapper{
+    margin: 100px auto;
+    width: 80%;
+}
+
+main .introduction img{
+    max-width: 420px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+main .introduction:nth-child(odd) img{
+    margin-right: 30px;
+    float: left;
+}
+
+main .introduction:nth-child(even) img{
+    margin-left: 30px;
+    float: right;
+}
+
+main .introduction p{
+    font-weight: 100;
+    line-height: 2;
+    font-size: 20px;
+}
+
+main .introduction:nth-child(odd) p{
+    text-align: left;
+}
+
+main .introduction:nth-child(even) p{
+    text-align: right;
+}
+
+main highlight{
+    font-weight: 600;
+    font-size: 36px;
+}
+
+footer{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #023047;
+    padding: 50px 0;
+}
+
+footer .container{
+    max-width: 1170px;
+    margin: auto;
+}
+
+footer .row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+footer .footer-column{
+    width: 30%;
+    padding: 0 10px;
+}
+
+.footer-column h4{
+    font-size: 18px;
+    color: white;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    font-weight: 500;
+    position: relative;
+    user-select: none;
+}
+
+.footer-column h4::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #fb8500;
+    box-sizing: border-box;
+    height: 2px;
+    width: 50px;
+}
+
+.footer-column ul li:not(:last-child)
+{
+    margin-bottom: 12px;
+}
+
+footer .container ul li a{
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+} 
+
+footer .container ul li a:hover{
+   color: white;
+   padding: 0 10px;
+} 
+
+footer .container ul{   
+    list-style: none;
+}
+
+@media (max-width:800px) {
+    footer .footer-column{
+        width: 50%;
+        padding: 10px;
+    }
+}
